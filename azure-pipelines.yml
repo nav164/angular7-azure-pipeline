@@ -31,7 +31,7 @@ steps:
   condition: succeededOrFailed()
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: 'coverage/cobertura-coverage.xml'
+    summaryFileLocation: 'coverage/my-app-azure-devops/cobertura-coverage.xml'
     reportDirectory: coverage
     failIfCoverageEmpty: true
 
