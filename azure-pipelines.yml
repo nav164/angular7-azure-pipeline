@@ -20,7 +20,7 @@ steps:
   inputs:
     SourceFolder: src/angular7/junit
     Contents: 'TEST*.xml'
-    
+
 - task: Npm@1
   displayName: 'npm install'
   inputs:
@@ -66,8 +66,23 @@ steps:
     PathtoPublish: 'dist'
     ArtifactName: angular2
 
-# - script: |
-#     npm install -g @angular/cli
-#     npm install
-#     ng build --prod
-#   displayName: 'npm install and build by Naveen'
+- task: Npm@1
+  displayName: 'Lint Angular'
+  inputs:
+    command: custom
+    customCommand: run lint --  --format=stylish
+
+- task: Npm@1
+  displayName: 'E2E Test Angular'
+  inputs:
+    command: custom
+    customCommand: run e2e
+
+- task: PublishTestResults@2
+  displayName: 'Publish Angular E2E test results'
+  condition: succeededOrFailed()
+  inputs:
+    searchFolder: $(System.DefaultWorkingDirectory)/junit
+    testRunTitle: Angular_E2E
+    testResultsFormat: JUnit
+    testResultsFiles: "**/junit*.xml"
