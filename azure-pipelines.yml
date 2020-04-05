@@ -41,9 +41,11 @@ steps:
     command: custom
     customCommand: run build -- --prod
 
-- task: PublishPipelineArtifact@0
+- task: PublishBuildArtifacts@1
   inputs:
-    artifactName: 'angular'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'angular'
+    publishLocation: 'Container'
 
 # - script: |
 #     npm install -g @angular/cli
