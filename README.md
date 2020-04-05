@@ -1,6 +1,7 @@
 # MyAppAzureDevops
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+[Azure build pipeline](https://www.olivercoding.com/2019-01-19-angular-azure-devops/)
 
 ## Development server
 
