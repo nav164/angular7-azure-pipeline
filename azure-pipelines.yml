@@ -31,8 +31,8 @@ steps:
   condition: succeededOrFailed()
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: 'src/coverage/cobertura-coverage.xml'
-    reportDirectory: src/coverage
+    summaryFileLocation: 'coverage/cobertura-coverage.xml'
+    reportDirectory: coverage
     failIfCoverageEmpty: true
 
 - task: Npm@1
