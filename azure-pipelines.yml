@@ -26,6 +26,10 @@ steps:
     command: custom
     customCommand: run build -- --prod
 
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'angular'
+
 # - script: |
 #     npm install -g @angular/cli
 #     npm install
