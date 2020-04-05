@@ -34,7 +34,11 @@ steps:
     summaryFileLocation: 'coverage/my-app-azure-devops/cobertura-coverage.xml'
     reportDirectory: coverage
     failIfCoverageEmpty: true
-
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'Publish test result'
 - task: Npm@1
   displayName: 'Build Angular'
   inputs:
