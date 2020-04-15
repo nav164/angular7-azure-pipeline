@@ -63,8 +63,9 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'dist'
-    ArtifactName: angular2
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\dist'
+    ArtifactName: 'angular'
+    publishLocation: 'Container'
 
 - task: Npm@1
   displayName: 'Lint Angular'
